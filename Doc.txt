@@ -1,0 +1,64 @@
+publicpartialclassForm1 : Form
+    {
+int count = 0;
+publicForm1()
+        {
+            InitializeComponent();
+        }
+privatevoid BtnClicker_Click(object sender, EventArgs e)
+        {
+            count++;count_lbl.Text = count.ToString();
+            Block();Win();
+        }
+privatevoid but123_Click(object sender, EventArgs e)
+        {
+            count=count+3; count_lbl.Text = count.ToString();
+            Block();
+            Win();
+        }
+privatevoid but_touch_Click(object sender, EventArgs e)
+        {
+            count = count + 5;
+            count_lbl.Text = count.ToString();
+            Block();
+            Win();
+        }
+publicvoid Win()
+        {
+intX = 100;
+if (int.Parse(count_lbl.Text) >= X)
+            {MessageBox.Show("You win");
+                but_touch.Enabled = false;
+                but123.Enabled = false;
+                but_nul.Enabled = false;
+                but_prize.Enabled = false;}
+        }
+privatevoid but_nul_Click(object sender, EventArgs e)
+        {
+            count = 0;
+            count_lbl.Text = count.ToString();
+            Win();
+            Block();
+        }
+publicvoid Block()
+        {
+if (count >= 60)
+BtnClicker.Enabled = false;
+else
+BtnClicker.Enabled = true;
+        } 
+privatevoid but_prize_Click(object sender, EventArgs e)
+        {
+if (int.Parse(count_lbl.Text) < 50)
+            {
+                count = count+7;
+                count_lbl.Text = count.ToString();
+            }
+else
+            {
+                count = count + 10;
+                count_lbl.Text = count.ToString();
+}
+            Win();
+            Block();
+        }
